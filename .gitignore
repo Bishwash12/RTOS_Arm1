@@ -5,3 +5,5 @@
 0_LED_Driver/.cproject
 0_LED_Driver/.vscode/
 0_LED_Driver/Startup/
+0_LED_Driver/Debug/
+0_LED_Driver/chip_headers/
