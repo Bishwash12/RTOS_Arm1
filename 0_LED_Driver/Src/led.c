@@ -1,0 +1,20 @@
+#include "led.h"
+
+
+void led_init(void)
+{
+	/* Enable clock access to LED port (Port A) */
+
+	/* Set led pin as output pin */
+}
+
+void led_on(void)
+{
+	/* Set led pin HIGH (PA5) */
+
+}
+
+void led_off(void)
+{
+	/* Set led pin LOW (PA5) */
+}
