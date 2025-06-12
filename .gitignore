@@ -7,3 +7,11 @@
 0_LED_Driver/Startup/
 0_LED_Driver/Debug/
 0_LED_Driver/chip_headers/
+1_uart_driver/.settings/
+1_uart_driver/.classpath
+1_uart_driver/.project       
+1_uart_driver/.cproject
+1_uart_driver/.vscode/
+1_uart_driver/Startup/
+1_uart_driver/Debug/
+1_uart_driver/chip_headers/
