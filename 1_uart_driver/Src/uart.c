@@ -1,5 +1,7 @@
 #include "uart.h"
 #include "stm32f4xx.h"
+#include <stdio.h>
+#include <stdint.h>
 
 #define GPIOAEN        (1U<<0)
 #define UART2EN        (1U<<17)
@@ -11,9 +13,17 @@
 #define CR1_TE         (1U<<3)
 #define CR1_UE         (1U<<13)
 
-static void compute_uart_baud_rate(uint32_t periph_clk, uint32_t baudrate);
-static void uart_set_baud_rate(uint32_t periph_clk, uint32_t baudrate);
+#define SR_TXE         (1U<<7)
 
+static uint16_t compute_uart_baud_rate(uint32_t periph_clk, uint32_t baudrate);
+static void uart_set_baud_rate(uint32_t periph_clk, uint32_t baudrate);
+static void uart_write(int ch);
+
+int __io_putchar(int ch)
+{
+	uart_write(ch);
+	return ch;
+}
 
 void uart_tx_init(void)
 {
@@ -42,14 +52,22 @@ void uart_tx_init(void)
 	USART2->CR1 |= CR1_UE;
 }
 
+static void uart_write(int ch)
+{
+	/* Make sure the transmit data register is empty */
+	while(!(USART2->SR & SR_TXE)){}
+	/* Write to transmit data register */
+	USART2->DR = (ch & 0xFF);
+}
+
 static void uart_set_baud_rate(uint32_t periph_clk, uint32_t baudrate)
 {
 	USART2->BRR = compute_uart_baud_rate(periph_clk, baudrate);
 }
 
 
-static void compute_uart_baud_rate(uint32_t periph_clk, uint32_t baudrate)
+static uint16_t compute_uart_baud_rate(uint32_t periph_clk, uint32_t baudrate)
 {
-	((periph_clk + (baudrate/2U))/baudrate);
+	 return ((periph_clk + (baudrate/2U))/baudrate);
 }
 
