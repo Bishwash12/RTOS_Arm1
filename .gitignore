@@ -15,3 +15,11 @@
 1_uart_driver/Startup/
 1_uart_driver/Debug/
 1_uart_driver/chip_headers/
+2_timebase/.settings/
+2_timebase/.classpath
+2_timebase/.project       
+2_timebase/.cproject
+2_timebase/.vscode/
+2_timebase/Startup/
+2_timebase/Debug/
+2_timebase/chip_headers/
