@@ -23,3 +23,11 @@
 2_timebase/Startup/
 2_timebase/Debug/
 2_timebase/chip_headers/
+3_blocking_code/.settings/
+3_blocking_code/.classpath
+3_blocking_code/.project       
+3_blocking_code/.cproject
+3_blocking_code/.vscode/
+3_blocking_code/Startup/
+3_blocking_code/Debug/
+3_blocking_code/chip_headers/
